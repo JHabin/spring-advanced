@@ -3,14 +3,12 @@ package com.sparta.currency_user.dto;
 import com.sparta.currency_user.entity.Currency;
 import lombok.Getter;
 
-import java.math.BigDecimal;
-
 @Getter
 public class CurrencyResponseDto {
     private Long id;
 
     private String currencyName;
-    private BigDecimal exchangeRate;
+    private Double exchangeRate;
     private String symbol;
 
     public CurrencyResponseDto(Currency currency) {
@@ -20,7 +18,7 @@ public class CurrencyResponseDto {
         this.symbol = currency.getSymbol();
     }
 
-    public CurrencyResponseDto(Long id, String currencyName, BigDecimal exchangeRate, String symbol) {
+    public CurrencyResponseDto(Long id, String currencyName, Double exchangeRate, String symbol) {
         this.id = id;
         this.currencyName = currencyName;
         this.exchangeRate = exchangeRate;

@@ -6,7 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 
-import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 
 @Entity
 @Getter
@@ -16,10 +17,12 @@ public class Currency {
     private Long id;
 
     private String currencyName;
-    private BigDecimal exchangeRate;
+    private Double exchangeRate;
     private String symbol;
+    private LocalDateTime createdAt;
 
-    public Currency(String currencyName, BigDecimal exchangeRate, String symbol) {
+    private LocalDateTime updatedAt;
+    public Currency(String currencyName, Double exchangeRate, String symbol) {
         this.currencyName = currencyName;
         this.exchangeRate = exchangeRate;
         this.symbol = symbol;
