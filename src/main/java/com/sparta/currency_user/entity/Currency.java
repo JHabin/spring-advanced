@@ -5,7 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 
@@ -17,12 +20,15 @@ public class Currency {
     private Long id;
 
     private String currencyName;
-    private Double exchangeRate;
+    private BigDecimal exchangeRate;
     private String symbol;
+    @CreatedDate
     private LocalDateTime createdAt;
 
+    @LastModifiedDate
     private LocalDateTime updatedAt;
-    public Currency(String currencyName, Double exchangeRate, String symbol) {
+
+    public Currency(String currencyName, BigDecimal exchangeRate, String symbol) {
         this.currencyName = currencyName;
         this.exchangeRate = exchangeRate;
         this.symbol = symbol;

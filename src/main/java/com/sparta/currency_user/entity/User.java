@@ -29,13 +29,13 @@ public class User {
 
     public User() {}
 
-    // 편의 메서드: 환전 요청 추가
+
     public void addExchangeRequest(ExchangeRequest exchangeRequest) {
         exchangeRequests.add(exchangeRequest);
         exchangeRequest.setUser(this);
     }
 
-    // 편의 메서드: 환전 요청 제거
+
     public void removeExchangeRequest(ExchangeRequest exchangeRequest) {
         exchangeRequests.remove(exchangeRequest);
         exchangeRequest.setUser(null);

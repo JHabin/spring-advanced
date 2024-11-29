@@ -16,21 +16,25 @@ public class UserController {
 
     private final UserService userService;
 
+    // READ
     @GetMapping
     public ResponseEntity<List<UserResponseDto>> findUsers() {
         return ResponseEntity.ok().body(userService.findAll());
     }
 
+    // READ
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseDto> findUser(@PathVariable Long id) {
         return ResponseEntity.ok().body(userService.findById(id));
     }
 
+    // CREATE
     @PostMapping
     public ResponseEntity<UserResponseDto> createUser(@RequestBody UserRequestDto userRequestDto) {
         return ResponseEntity.ok().body(userService.save(userRequestDto));
     }
 
+    // DELETE
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userService.deleteUserById(id);

@@ -15,16 +15,19 @@ import java.util.List;
 public class CurrencyController {
     private final CurrencyService currencyService;
 
+    // READ
     @GetMapping
     public ResponseEntity<List<CurrencyResponseDto>> findCurrencies() {
         return ResponseEntity.ok().body(currencyService.findAll());
     }
 
+    // READ
     @GetMapping("/{id}")
     public ResponseEntity<CurrencyResponseDto> findCurrency(@PathVariable Long id) {
         return ResponseEntity.ok().body(currencyService.findById(id));
     }
 
+    // CREATE
     @PostMapping
     public ResponseEntity<CurrencyResponseDto> createCurrency(@RequestBody CurrencyRequestDto currencyRequestDto) {
         return ResponseEntity.ok().body(currencyService.save(currencyRequestDto));
